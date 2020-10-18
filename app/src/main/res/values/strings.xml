@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">StuFun</string>
+    <string name="sample_button">Sample Button</string>
+    <string name="select_n_user">Select \nUser</string>
+    <string name="teacher">Teacher</string>
+    <string name="student">Student</string>
+    <string name="splash_screen">Splash Screen</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="not_a_account_yet_sign_up">Not a Account Yet? Sign Up</string>
+    <string name="enter_your_details">Enter Your Details</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="course">Course</string>
+    <string name="branch">Branch</string>
+    <string name="section">Section</string>
+    <string name="year">Year</string>
+    <string name="stufun">Stufun</string>
+    <string name="stufu">StuFun</string>
 </resources>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserSelection">
+
+    <RelativeLayout
+        android:id="@+id/user_selection_bg_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/oval_green"
+        android:layout_marginTop="-100dp"
+        android:layout_marginStart="-250dp"
+        android:layout_marginBottom="180dp"
+        android:layout_marginEnd="70dp"
+        >
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:text="@string/select_n_user"
+        android:textColor="@color/colorWhite"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <RelativeLayout
+        android:id="@+id/student_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="250dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="35dp">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/oval_white"
+            android:elevation="10dp"
+            android:id="@+id/user_selection_student_imgview"
+            android:src="@drawable/student"
+            android:padding="25dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/student"
+            android:layout_below="@+id/user_selection_student_imgview"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/colorWhite"
+            android:letterSpacing=".08"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-300dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="-100dp"
+        android:layout_marginBottom="-50dp"
+        android:background="@drawable/oval_green"
+        android:layout_below="@+id/user_selection_bg_top"/>
+
+    <RelativeLayout
+        android:id="@+id/teacher_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="55dp"
+        tools:ignore="RelativeOverlap">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/teacher"
+            android:id="@+id/user_selection_teacher_imgview"
+            android:padding="25dp"
+            android:background="@drawable/oval_white"
+            android:elevation="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/teacher"
+            android:layout_below="@+id/user_selection_teacher_imgview"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/colorWhite"
+            android:letterSpacing=".08"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
