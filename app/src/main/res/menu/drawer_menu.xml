@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:icon="@drawable/ic_outline_person_24"
+            android:id="@+id/profile3"
+            android:title="navigationtesting" />
+        <item
+            android:icon="@drawable/ic_outline_person_24"
+            android:id="@+id/profile2"
+            android:title="navigationtesting" />
+        <item
+            android:icon="@drawable/ic_outline_person_24"
+            android:id="@+id/profile"
+            android:title="navigationtesting" />
+
+    </group>
+
+    <item android:title="my_account">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:icon="@drawable/ic_outline_person_24"
+                    android:id="@+id/profile5"
+                    android:title="navigationtesting" />
+                <item
+                    android:icon="@drawable/ic_outline_person_24"
+                    android:id="@+id/profile6"
+                    android:title="navigationtesting" />
+            </group>
+        </menu>
+    </item>
+
+<!--    <item android:title="about_us">-->
+<!--        <menu>-->
+<!--            <group android:checkableBehavior="single">-->
+<!--                <item-->
+<!--                    android:icon="@drawable/ic_baseline_trending_up_24"-->
+<!--                    android:id="@+id/nav_hierarchy"-->
+<!--                    android:title="@string/team_asme" />-->
+<!--                <item-->
+<!--                    android:icon="@drawable/ic_outline_school_24"-->
+<!--                    android:id="@+id/nav_alumni"-->
+<!--                    android:title="@string/alumni" />-->
+
+<!--                <item-->
+<!--                    android:icon="@drawable/ic_outline_contact_mail_24"-->
+<!--                    android:id="@+id/nav_cntact"-->
+<!--                    android:title="@string/contact_us" />-->
+<!--            </group>-->
+<!--        </menu>-->
+<!--    </item>-->
+<!--    <item android:title="@string/log_out">-->
+<!--        <menu>-->
+<!--            <group android:checkableBehavior="single">-->
+<!--                <item-->
+<!--                    android:icon="@drawable/ic_outline_subdirectory_arrow_left_24"-->
+<!--                    android:id="@+id/nav_lg"-->
+<!--                    android:title="@string/log_out" />-->
+<!--            </group>-->
+<!--        </menu>-->
+<!--    </item>-->
+</menu>

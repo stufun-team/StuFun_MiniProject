@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateClassActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/just_enter_few_details"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:id="@+id/add_class_head"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+    <LinearLayout
+        android:id="@+id/temp_linear_layout"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_class_head"
+        android:orientation="vertical">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:hint="@string/classroom_name"
+            android:background="@drawable/edit_bg"
+            android:drawableStart="@drawable/ic_outline_book_24"
+            android:layout_marginStart="20dp"
+            android:id="@+id/add_class_name"
+            android:elevation="5dp"
+            android:layout_marginEnd="20dp"
+            android:inputType="textPersonName"
+            android:importantForAutofill="no" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/classroom_subject"
+            android:background="@drawable/edit_bg"
+            android:drawableStart="@drawable/ic_outline_book_24"
+            android:layout_marginStart="20dp"
+            android:id="@+id/add_class_subject"
+            android:elevation="5dp"
+            android:layout_marginEnd="20dp"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_outline_person_24"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/avatar_img"/>
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/avatar_recyclerview"
+            android:layout_marginTop="20dp"
+            />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="35dp"
+        android:background="@drawable/rectangle_button"
+        android:text="@string/create_classroom"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@+id/temp_linear_layout"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/add_class_btn"
+        />
+
+
+</RelativeLayout>

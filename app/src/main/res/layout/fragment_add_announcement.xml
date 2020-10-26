@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddAnnouncementFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/add_announcement"
+        android:id="@+id/add_announce_head"
+        android:layout_marginStart="25dp"
+        android:textColor="@color/colorPrimary"
+        />
+    <EditText
+        android:gravity="top"
+        android:padding="10dp"
+        android:layout_below="@id/add_announce_head"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/edit_bg"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/add_announcement_edit"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:textColor="@color/colorWhite"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_button"
+        android:layout_below="@+id/add_announcement_edit"
+        android:layout_marginTop="70dp"
+        android:id="@+id/add_announcement_btn"
+        android:layout_centerHorizontal="true"
+        android:text="@string/add_announcement"
+        />
+
+</RelativeLayout>

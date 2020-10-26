@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    app:cardElevation="5dp"
+    android:layout_marginTop="5dp"
+    android:id="@+id/classroom_card_layout"
+    app:cardCornerRadius="15dp"
+    app:cardBackgroundColor="#55EA4B"
+    android:layout_height="wrap_content">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        >
+        
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:civ_border_color="@color/colorPrimary"
+            app:civ_border_width="1dp"
+            android:src="@drawable/oval_white"
+            android:id="@+id/created_class_image"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/created_class_image"
+
+            android:layout_marginStart="15dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/classroom_name"
+                android:textSize="18sp"
+                android:id="@+id/created_class_name_txt"
+                android:textColor="#000" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/subject"
+                android:textColor="#000"
+                android:id="@+id/created_class_subject_txt"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/created_class_image"
+            android:text="@string/teacher_name"
+            android:id="@+id/created_class_teacher_txt"
+            android:layout_marginTop="5dp"
+            android:textColor="#000"
+            app:drawableStartCompat="@drawable/ic_outline_person_24" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

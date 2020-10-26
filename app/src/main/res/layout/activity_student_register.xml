@@ -1,174 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".StudentRegister">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <RelativeLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/square_one_side_rd"
+        android:layout_marginTop="100dp"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:elevation="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp">
-
-            <FrameLayout
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:background="@drawable/oval_green"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:id="@+id/reg_img"
-                >
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/student"
-                    android:padding="25dp"/>
-
-            </FrameLayout>
-
-
-            <TextView
-                android:layout_below="@+id/reg_img"
-                android:paddingStart="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/enter_your_details"
-                android:textSize="22sp"
-                android:layout_marginTop="20dp"
-                android:id="@+id/reg_head"
-                android:textColor="@color/colorPrimary"
-                tools:ignore="RtlSymmetry" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/reg_name"
-                android:layout_width="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_below="@+id/reg_head"
-                android:layout_height="wrap_content"
-                android:hint="@string/name"
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/reg_email"
-                android:layout_width="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_below="@+id/reg_name"
-                android:layout_height="wrap_content"
-                android:hint="@string/email_address"
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/reg_phone"
-                android:layout_width="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_below="@+id/reg_email"
-                android:layout_height="wrap_content"
-                android:hint="@string/phone"
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
+            android:background="@drawable/edit_bg"
+            android:hint="@string/email"
+            android:layout_marginTop="80dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/email_edit"
+            android:drawableStart="@drawable/ic_outline_email_24"
+            android:drawablePadding="5dp"
+            android:padding="9dp"
+            />
+        <EditText
+            android:elevation="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_bg"
+            android:hint="@string/password"
+            android:layout_below="@+id/email_edit"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/password_edit"
+            android:drawableStart="@drawable/ic_outline_email_24"
+            android:drawablePadding="5dp"
+            android:padding="9dp"
+            />
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:background="@drawable/rectangle_button"
+            android:text="@string/sign_up"
+            android:textColor="@color/colorWhite"
+            android:padding="5dp"
+            android:id="@+id/send_veri_btn"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="60dp"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            />
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/reg_course"
-                android:layout_width="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_below="@+id/reg_phone"
-                android:layout_height="wrap_content"
-                android:hint="@string/course"
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/reg_branch"
-                android:layout_width="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_below="@+id/reg_course"
-                android:layout_height="wrap_content"
-                android:hint="@string/branch"
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
+    </RelativeLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/reg_sec"
-                android:layout_width="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_below="@+id/reg_branch"
-                android:layout_height="wrap_content"
-                android:hint="@string/section"
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/reg_year"
-                android:layout_width="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_below="@+id/reg_sec"
-                android:layout_height="wrap_content"
-                android:hint="@string/year"
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rectangle_button"
-                android:layout_centerHorizontal="true"
-                android:elevation="5dp"
-                android:id="@+id/registration_btn"
-                android:textSize="20sp"
-                android:text="@string/login"
-                android:layout_below="@+id/reg_year"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="15dp"/>
-
-
-        </RelativeLayout>
-    </ScrollView>
 
 </RelativeLayout>

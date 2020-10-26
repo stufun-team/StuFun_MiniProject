@@ -1,142 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".TeacherRegister">
-
-    <ScrollView
+    <RelativeLayout
+        android:background="@drawable/square_two_side_rnd"
+        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RelativeLayout
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/oval_white"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_outline_person_24"
+            android:layout_marginTop="-30dp"
+            android:id="@+id/login_image_select"
+            tools:ignore="ContentDescription" />
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp">
-
-            <FrameLayout
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:background="@drawable/oval_green"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:id="@+id/reg_img"
-                >
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/student"
-                    android:padding="25dp"/>
-
-            </FrameLayout>
-
-
-            <TextView
-                android:layout_below="@+id/reg_img"
-                android:paddingStart="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/enter_your_details"
-                android:textSize="22sp"
-                android:layout_marginTop="20dp"
-                android:id="@+id/teacher_reg_head"
-                android:textColor="@color/colorPrimary"
-                tools:ignore="RtlSymmetry" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/teacher_reg_name"
-                android:layout_width="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_below="@+id/teacher_reg_head"
-                android:layout_height="wrap_content"
-                android:hint="@string/name"
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/teacher_reg_email"
-                android:layout_width="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_below="@+id/teacher_reg_name"
-                android:layout_height="wrap_content"
-                android:hint="@string/email_address"
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/teacher_reg_phone"
-                android:layout_width="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_below="@+id/teacher_reg_email"
-                android:layout_height="wrap_content"
-                android:hint="@string/phone"
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/teacher_reg_course"
-                android:layout_width="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_below="@+id/teacher_reg_phone"
-                android:layout_height="wrap_content"
-                android:hint="@string/course"
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/teacher_reg_subject"
-                android:layout_width="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_below="@+id/teacher_reg_course"
-                android:layout_height="wrap_content"
-                android:hint="@string/branch"
-                >
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <Button
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rectangle_button"
-                android:layout_centerHorizontal="true"
-                android:elevation="5dp"
-                android:id="@+id/registration_btn"
-                android:textSize="20sp"
-                android:text="@string/login"
-                android:layout_below="@+id/teacher_reg_subject"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="15dp"/>
-
-
-        </RelativeLayout>
-    </ScrollView>
-
+            android:background="@drawable/edit_bg"
+            android:padding="9dp"
+            android:drawablePadding="5dp"
+            android:hint="@string/name"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:inputType="textPersonName"
+            android:drawableStart="@drawable/ic_outline_person_24"
+            android:id="@+id/teacher_login_name"
+            android:importantForAutofill="no"
+            android:elevation="3dp"
+            tools:ignore="LabelFor" />
+        <EditText
+            android:elevation="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_bg"
+            android:padding="9dp"
+            android:layout_below="@id/teacher_login_name"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/organization_name"
+            android:inputType="textPersonName"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/ic_outline_security_24"
+            android:id="@+id/teacher_organization_name"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/rectangle_button"
+            android:text="@string/create"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/teacher_create_user"/>
+    </RelativeLayout>
 </RelativeLayout>

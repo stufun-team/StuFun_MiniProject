@@ -7,7 +7,6 @@
     <string name="splash_screen">Splash Screen</string>
     <string name="email_address">Email address</string>
     <string name="password">Password</string>
-    <string name="login">Login</string>
     <string name="not_a_account_yet_sign_up">Not a Account Yet? Sign Up</string>
     <string name="enter_your_details">Enter Your Details</string>
     <string name="name">Name</string>
@@ -18,4 +17,29 @@
     <string name="year">Year</string>
     <string name="stufun">Stufun</string>
     <string name="stufu">StuFun</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="email">Email</string>
+    <string name="send_verification">Send Verification</string>
+    <string name="verify">Verify</string>
+    <string name="otp">OTP</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="organization_name">Organization Name</string>
+    <string name="my_classroom">My Classroom</string>
+    <string name="not_created_classroom_yet">Not Created Classroom yet</string>
+    <string name="create">Create</string>
+    <string name="classroom_name">ClassRoom Name</string>
+    <string name="subject">Subject</string>
+    <string name="teacher_name">Teacher name</string>
+    <string name="classroom_subject">Classroom Subject</string>
+    <string name="create_classroom">Create Classroom</string>
+    <string name="just_enter_few_details">Just Enter Few Details</string>
+    <string name="add_nannouncement">Add \nAnnouncement</string>
+    <string name="discussion_npanel">Discussion \nPanel</string>
+    <string name="students">Students</string>
+    <string name="setting">Setting</string>
+    <string name="classname">ClassName</string>
+    <string name="add_announcement">Add Announcement</string>
+    <string name="announcement">Announcement</string>
 </resources>

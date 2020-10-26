@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TeacherClassFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/classname"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:textSize="22sp"
+        android:id="@+id/class_head"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/class_head"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"/>
+
+    <HorizontalScrollView
+        android:layout_below="@id/class_head"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:id="@+id/horizontal_layout"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_marginStart="20dp"
+                android:id="@+id/add_announcement_layout"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_outline_announcement_24"
+                    android:id="@+id/announce_icon"
+                    tools:ignore="ContentDescription" />
+                <TextView
+                    android:layout_width="60dp"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/announce_icon"
+                    android:text="@string/add_nannouncement"
+                    android:gravity="center"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_marginStart="30dp"
+                android:id="@+id/discussion_layout"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_outline_question_answer_24"
+                    android:id="@+id/discussion_icon"
+                    tools:ignore="ContentDescription" />
+                <TextView
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/discussion_icon"
+                    android:text="@string/discussion_npanel"
+                    android:gravity="center"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_marginStart="30dp"
+                android:id="@+id/member_layout"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_outline_group_24"
+                    android:id="@+id/member_icon"
+                    tools:ignore="ContentDescription" />
+                <TextView
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/member_icon"
+                    android:text="@string/students"
+                    android:gravity="center"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_marginStart="30dp"
+                android:id="@+id/setting_layout"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_outline_settings_24"
+                    android:id="@+id/setting_icon"
+                    tools:ignore="ContentDescription" />
+                <TextView
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/setting_icon"
+                    android:text="@string/setting"
+                    android:gravity="center"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/announcement_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/horizontal_layout"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp" />
+
+</RelativeLayout>
