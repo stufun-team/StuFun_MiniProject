@@ -1,22 +1,21 @@
-package com.example.stufun;
+package com.example.stufun.Login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.LinearGradient;
 import android.os.Bundle;
-import android.telephony.ims.ImsMmTelManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.stufun.HomeActivity;
 import com.example.stufun.Prevalent.Prevalent;
 import com.example.stufun.Prevalent.User;
+import com.example.stufun.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -24,8 +23,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Text;
 
 import java.util.Objects;
 
@@ -121,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                         {
                             Prevalent.currentuser = dataSnapshot.getValue(User.class);
 
-                            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
 
@@ -132,7 +129,7 @@ public class LoginActivity extends AppCompatActivity {
                             {
                                 Prevalent.type = "Teacher";
                                 Intent intent = new Intent(
-                                        LoginActivity.this,TeacherRegister.class);
+                                        LoginActivity.this, TeacherRegister.class);
                                 intent.putExtra("email",email);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".LoginActivity">
+    tools:context=".Login.LoginActivity">
 
    <RelativeLayout
        android:layout_width="match_parent"
@@ -25,7 +25,8 @@
            android:drawablePadding="5dp"
            android:layout_marginTop="80dp"
            android:id="@+id/login_email_txt"
-           />
+           android:inputType="textEmailAddress"
+           android:importantForAutofill="no" />
        <EditText
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
@@ -40,7 +41,7 @@
             android:layout_below="@+id/login_email_txt"
            android:layout_marginTop="20dp"
            android:id="@+id/login_pass_txt"
-           />
+           android:importantForAutofill="no" />
        <Button
            android:layout_width="150dp"
            android:layout_height="40dp"
