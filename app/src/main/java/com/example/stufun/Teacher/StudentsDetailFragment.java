@@ -1,4 +1,4 @@
-package com.example.stufun;
+package com.example.stufun.Teacher;
 
 import android.os.Bundle;
 
@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.stufun.Model.StudentsModel;
+import com.example.stufun.R;
 import com.example.stufun.ViewHolder.StudentsViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;

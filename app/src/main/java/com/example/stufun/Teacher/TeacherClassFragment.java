@@ -1,4 +1,4 @@
-package com.example.stufun;
+package com.example.stufun.Teacher;
 
 import android.graphics.Matrix;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.stufun.Model.AnnouncementModel;
+import com.example.stufun.R;
 import com.example.stufun.ViewHolder.AnnouncementViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;

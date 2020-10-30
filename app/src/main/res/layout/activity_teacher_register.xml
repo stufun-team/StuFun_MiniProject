@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".TeacherRegister">
+    tools:context=".Login.TeacherRegister">
     <RelativeLayout
         android:background="@drawable/square_two_side_rnd"
         android:layout_marginTop="60dp"

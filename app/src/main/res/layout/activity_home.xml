@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:id="@+id/drawer_layout"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".Teacher.HomeActivity">
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"

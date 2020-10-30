@@ -1,4 +1,4 @@
-package com.example.stufun;
+package com.example.stufun.Login;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,7 +14,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.stufun.Teacher.HomeActivity;
 import com.example.stufun.Prevalent.Prevalent;
+import com.example.stufun.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

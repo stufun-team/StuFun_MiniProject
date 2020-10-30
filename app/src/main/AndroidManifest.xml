@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity android:name=".Login.StudenLoginDetailAvtivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".Teacher.HomeActivity" />
         <activity android:name=".Login.LoginActivity" />
         <activity android:name=".Login.TeacherRegister" />
         <activity android:name=".Login.StudentRegister" />

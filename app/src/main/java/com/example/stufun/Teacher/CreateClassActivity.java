@@ -1,4 +1,4 @@
-package com.example.stufun;
+package com.example.stufun.Teacher;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.stufun.Prevalent.Prevalent;
+import com.example.stufun.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;

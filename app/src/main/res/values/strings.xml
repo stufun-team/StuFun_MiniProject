@@ -42,4 +42,7 @@
     <string name="classname">ClassName</string>
     <string name="add_announcement">Add Announcement</string>
     <string name="announcement">Announcement</string>
+    <string name="enter_the_classroom_id_to_join">Enter the Classroom id to Join</string>
+    <string name="class_id">Class ID</string>
+    <string name="join_class">Join Class</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.stufun;
+package com.example.stufun.Login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.stufun.Teacher.HomeActivity;
 import com.example.stufun.Prevalent.Prevalent;
 import com.example.stufun.Prevalent.User;
 import com.example.stufun.R;
@@ -72,7 +73,7 @@ public class UserSelection extends AppCompatActivity {
                         {
                             Prevalent.currentuser = dataSnapshot.getValue(User.class);
 
-                            Intent intent = new Intent(UserSelection.this,HomeActivity.class);
+                            Intent intent = new Intent(UserSelection.this, HomeActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
 

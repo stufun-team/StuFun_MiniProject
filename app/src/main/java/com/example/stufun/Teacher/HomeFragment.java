@@ -1,4 +1,4 @@
-package com.example.stufun;
+package com.example.stufun.Teacher;
 
 import android.os.Bundle;
 
@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 
 import com.example.stufun.Model.ClassRoomModel;
 import com.example.stufun.Prevalent.Prevalent;
+import com.example.stufun.R;
 import com.example.stufun.ViewHolder.ClassRoomViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
