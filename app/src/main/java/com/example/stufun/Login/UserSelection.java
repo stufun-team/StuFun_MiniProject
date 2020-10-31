@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.stufun.Teacher.HomeActivity;
+import com.example.stufun.HomeActivity;
 import com.example.stufun.Prevalent.Prevalent;
 import com.example.stufun.Prevalent.User;
 import com.example.stufun.R;

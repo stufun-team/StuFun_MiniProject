@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.stufun.Teacher.HomeActivity;
+import com.example.stufun.HomeActivity;
 import com.example.stufun.Prevalent.Prevalent;
 import com.example.stufun.Prevalent.User;
 import com.example.stufun.R;

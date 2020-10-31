@@ -1,4 +1,4 @@
-package com.example.stufun.Teacher;
+package com.example.stufun;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import com.example.stufun.Prevalent.Prevalent;
 import com.example.stufun.R;
 import com.example.stufun.Student.StudentHomeFragment;
+import com.example.stufun.Teacher.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{

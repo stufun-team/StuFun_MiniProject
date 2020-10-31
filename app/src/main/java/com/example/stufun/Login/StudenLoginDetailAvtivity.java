@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.stufun.Teacher.HomeActivity;
+import com.example.stufun.HomeActivity;
 import com.example.stufun.Prevalent.Prevalent;
 import com.example.stufun.R;
 import com.google.android.gms.tasks.OnCompleteListener;

@@ -24,7 +24,6 @@ import java.util.HashMap;
 public class AddAnnouncementFragment extends Fragment {
 
     private EditText announcement;
-    private Button button;
     private String classid;
 
     @Override
@@ -34,7 +33,7 @@ public class AddAnnouncementFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_add_announcement, container, false);
 
         announcement = view.findViewById(R.id.add_announcement_edit);
-        button = view.findViewById(R.id.add_announcement_btn);
+        Button button = view.findViewById(R.id.add_announcement_btn);
         assert getArguments() != null;
         classid = getArguments().getString("id");
 
