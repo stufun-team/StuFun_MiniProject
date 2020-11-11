@@ -6,8 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentManager;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -15,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.stufun.Prevalent.Prevalent;
@@ -28,12 +26,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.Random;
 
 
 public class CreateClassActivity extends Fragment {
 
-    private RecyclerView recyclerView;
+
     private EditText cnametxt, csubjecttxt;
     private Button submitbtn;
 
@@ -43,7 +42,6 @@ public class CreateClassActivity extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_create_class_activity, container, false);
 
-        recyclerView = view.findViewById(R.id.avatar_recyclerview);
         cnametxt = view.findViewById(R.id.add_class_name);
         csubjecttxt = view.findViewById(R.id.add_class_subject);
         submitbtn = view.findViewById(R.id.add_class_btn);
@@ -54,8 +52,6 @@ public class CreateClassActivity extends Fragment {
 
     private void initalizeUI() {
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),
-                RecyclerView.HORIZONTAL,false));
 
         submitbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +93,8 @@ public class CreateClassActivity extends Fragment {
         int color = Color.argb(255,random.nextInt(256)
                 ,random.nextInt(256),random.nextInt(256));
 
+        int randomimg = random.nextInt(3);
+
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         String crdate = sdf.format(new Date());
 
@@ -104,12 +102,13 @@ public class CreateClassActivity extends Fragment {
         map.put("classname",cname);
         map.put("classcode",id);
         map.put("classsubject",csubject);
-        map.put("classimage","");
+        map.put("classimage",randomimg);
         map.put("classcolorcode",color);
         map.put("teachername", Prevalent.currentuser.getName());
         map.put("datecreated",crdate);
 
-        databaseReference.child(Prevalent.currentuser.getName()).child(id).updateChildren(map)
+
+        databaseReference.child(Prevalent.currentuser.getUid()).child(id).updateChildren(map)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -127,6 +126,16 @@ public class CreateClassActivity extends Fragment {
                                                 Toast.makeText(getActivity(),
                                                         "Successful",
                                                         Toast.LENGTH_SHORT).show();
+                                                Bundle bundle = new Bundle();
+                                                bundle.putString("id",id);
+                                                Fragment fragment = new SendInvitationFragment();
+                                                fragment.setArguments(bundle);
+                                                FragmentManager fragmentManager =
+                                                        Objects.requireNonNull(getActivity()).
+                                                                getSupportFragmentManager();
+                                                fragmentManager.beginTransaction()
+                                                        .replace(R.id.fragment_container,fragment)
+                                                        .commit();
                                             }
                                             else {
                                                 Toast.makeText(getActivity(),

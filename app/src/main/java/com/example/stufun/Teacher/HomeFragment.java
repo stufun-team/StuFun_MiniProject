@@ -15,12 +15,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.example.stufun.Model.AvnatarModel;
 import com.example.stufun.Model.ClassRoomModel;
+import com.example.stufun.Prevalent.CurrentClass;
 import com.example.stufun.Prevalent.Prevalent;
 import com.example.stufun.R;
+import com.example.stufun.TeacherClass;
 import com.example.stufun.ViewHolder.ClassRoomViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -32,7 +36,7 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private DatabaseReference reference;
-    private ImageView createround;
+    private FloatingActionButton createround;
     private Button createsquare;
     private RelativeLayout relativeLayout;
 
@@ -58,7 +62,7 @@ public class HomeFragment extends Fragment {
 
         FirebaseRecyclerOptions<ClassRoomModel> options = new
                 FirebaseRecyclerOptions.Builder<ClassRoomModel>()
-                .setQuery(reference.child(Prevalent.currentuser.getName()),
+                .setQuery(reference.child(Prevalent.currentuser.getUid()),
                         ClassRoomModel.class).build();
 
         FirebaseRecyclerAdapter<ClassRoomModel, ClassRoomViewHolder> adapter =
@@ -67,6 +71,8 @@ public class HomeFragment extends Fragment {
                     protected void onBindViewHolder(
                             @NonNull ClassRoomViewHolder holder, int position,
                             @NonNull final ClassRoomModel model) {
+
+
 
                         relativeLayout.setVisibility(View.INVISIBLE);
                         holder.classnametxt.setText(model.getClassname());
@@ -77,20 +83,22 @@ public class HomeFragment extends Fragment {
                             @Override
                             public void onClick(View view) {
 
-                                Bundle bundle = new Bundle();
-                                bundle.putString("id",model.getClasscode());
-
-                                Fragment fragment = new TeacherClassFragment();
-                                fragment.setArguments(bundle);
-                                FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
+                                CurrentClass.classid = model.getClasscode();
+                                CurrentClass.classname = model.getClassname();
+                                Fragment fragment = new TeacherClass();
+                                FragmentManager fragmentManager =
+                                        Objects.requireNonNull(getActivity())
+                                                .getSupportFragmentManager();
                                 fragmentManager.beginTransaction().replace(R.id.fragment_container,fragment)
                                         .commit();
                             }
                         });
+                        AvnatarModel avnatarModel = new AvnatarModel();
 
                         try{
                             holder.cardView.setCardBackgroundColor(model.getClasscolorcode());
-                            Picasso.get().load(model.getClassimage()).into(holder.classimageview);
+                            Picasso.get().load(avnatarModel.getImage(model.getClassimage()))
+                                    .into(holder.classimageview);
                         }
                         catch (Exception ignored){
                         }
