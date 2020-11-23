@@ -1,6 +1,7 @@
 package com.example.stufun.Teacher;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -35,6 +36,7 @@ public class CreateClassActivity extends Fragment {
 
     private EditText cnametxt, csubjecttxt;
     private Button submitbtn;
+    private ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,7 +47,7 @@ public class CreateClassActivity extends Fragment {
         cnametxt = view.findViewById(R.id.add_class_name);
         csubjecttxt = view.findViewById(R.id.add_class_subject);
         submitbtn = view.findViewById(R.id.add_class_btn);
-
+        progressDialog = new ProgressDialog(getContext());
         initalizeUI();
         return view;
     }
@@ -78,6 +80,9 @@ public class CreateClassActivity extends Fragment {
         }
         else{
             createClassroom(cname,csubject);
+            progressDialog.setTitle("Creating Classroom");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
         }
 
     }
@@ -136,8 +141,10 @@ public class CreateClassActivity extends Fragment {
                                                 fragmentManager.beginTransaction()
                                                         .replace(R.id.fragment_container,fragment)
                                                         .commit();
+                                                progressDialog.cancel();
                                             }
                                             else {
+                                                progressDialog.cancel();
                                                 Toast.makeText(getActivity(),
                                                         "Error", Toast.LENGTH_SHORT).show();
                                             }
@@ -147,6 +154,7 @@ public class CreateClassActivity extends Fragment {
                         }
                         else
                         {
+                            progressDialog.cancel();
                             Toast.makeText(getActivity(),
                                     "Error", Toast.LENGTH_SHORT).show();
                         }
