@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.stufun.Model.AvnatarModel;
@@ -20,7 +19,6 @@ import com.example.stufun.Model.ClassRoomModel;
 import com.example.stufun.Prevalent.CurrentClass;
 import com.example.stufun.Prevalent.Prevalent;
 import com.example.stufun.R;
-import com.example.stufun.TeacherClass;
 import com.example.stufun.ViewHolder.ClassRoomViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -69,7 +67,7 @@ public class HomeFragment extends Fragment {
                 new FirebaseRecyclerAdapter<ClassRoomModel, ClassRoomViewHolder>(options) {
                     @Override
                     protected void onBindViewHolder(
-                            @NonNull ClassRoomViewHolder holder, int position,
+                            @NonNull final ClassRoomViewHolder holder, int position,
                             @NonNull final ClassRoomModel model) {
 
 
@@ -78,6 +76,26 @@ public class HomeFragment extends Fragment {
                         holder.classnametxt.setText(model.getClassname());
                         holder.subjectnametxt.setText(model.getClasssubject());
                         holder.teachernametxt.setText(model.getTeachername());
+
+                        holder.dots.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if(holder.modifytxt.getVisibility() == View.GONE)
+                                {
+                                    holder.modifytxt.setVisibility(View.VISIBLE);
+                                }
+                                else {
+                                    holder.modifytxt.setVisibility(View.GONE);
+                                }
+                            }
+                        });
+
+                        holder.modifytxt.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                deleteClass(model.getClasscode());
+                            }
+                        });
 
                         holder.cardView.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -102,6 +120,18 @@ public class HomeFragment extends Fragment {
                         }
                         catch (Exception ignored){
                         }
+                    }
+
+                    public void deleteClass(String classcode)
+                    {
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance()
+                                .getReference();
+
+                        databaseReference.child("Teacher Classroom")
+                                .child(Prevalent.currentuser.getUid()).child(classcode)
+                                .removeValue();
+
+                        databaseReference.child("TClass").child(classcode).removeValue();
                     }
 
                     @NonNull

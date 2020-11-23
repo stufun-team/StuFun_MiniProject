@@ -1,11 +1,15 @@
 package com.example.stufun.Teacher;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Matrix;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,23 +17,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import com.example.stufun.AddAnnouncementActivity;
+import com.example.stufun.Chat.ChatActivity;
 import com.example.stufun.Model.AnnouncementModel;
+import com.example.stufun.Prevalent.CurrentClass;
 import com.example.stufun.R;
 import com.example.stufun.ViewHolder.AnnouncementViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
 public class TeacherClassFragment extends Fragment {
 
-    private RelativeLayout addannouncementlayout,settinglayout,studentlayout,discussionlayout;
     private RecyclerView recyclerView;
     private String classid = "";
+    private FloatingActionButton floatingActionButton;
+    private int i = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,14 +49,11 @@ public class TeacherClassFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_teacher_class, container, false);
 
-        assert getArguments() != null;
-        classid = getArguments().getString("id");
+        classid = CurrentClass.classid;
 
-        addannouncementlayout = view.findViewById(R.id.add_announcement_layout);
-        discussionlayout = view.findViewById(R.id.discussion_layout);
-        settinglayout = view.findViewById(R.id.setting_layout);
-        studentlayout = view.findViewById(R.id.member_layout);
         recyclerView = view.findViewById(R.id.announcement_recyclerview);
+        floatingActionButton = view.findViewById(R.id.float_add_announcement);
+
 
         initalizeUI();
 
@@ -97,64 +106,105 @@ public class TeacherClassFragment extends Fragment {
                             }
                         });
                     }
+
                     @NonNull
                     @Override
-                    public AnnouncementViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                    public AnnouncementViewHolder onCreateViewHolder(
+                            @NonNull ViewGroup parent, int viewType) {
                         View v = LayoutInflater.from(parent.getContext())
-                                .inflate(R.layout.announcement_viewholder,parent,false);
+                                .inflate(R.layout.announcement_viewholder,
+                                        parent,false);
                         return new AnnouncementViewHolder(v);
                     }
                 };
+
+        new ItemTouchHelper(simpleCallback).attachToRecyclerView(recyclerView);
         recyclerView.setAdapter(adapter);
-
-//        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {
-//            @Override
-//            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-//                return false;
-//            }
-//
-//            @Override
-//            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-//                adapter.dele
-//            }
-//        });
-
         adapter.startListening();
 
     }
 
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT) {
+
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+            int pos = viewHolder.getAdapterPosition();
+            showDialog(pos);
+        }
+    };
+
+    private void showDialog(final int pos){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        builder.setTitle("Delete Announcement");
+
+        builder.setMessage("Are you sure want to delete Announcement");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                deleteAnnouncement(pos);
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                showAnnouncement();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public void deleteAnnouncement(final int id)
+    {
+
+        final DatabaseReference reference = FirebaseDatabase.getInstance().getReference()
+                .child("Announcement");
+        final ValueEventListener listener;
+        listener = reference.child(CurrentClass.classid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot dataSnapshot :snapshot.getChildren())
+                {
+                    if(i == id)
+                    {
+                        AnnouncementModel announcementModel = dataSnapshot.getValue(AnnouncementModel.class);
+
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference()
+                                .child("Announcement");
+
+                        databaseReference.child(CurrentClass.classid).child(announcementModel.getId())
+                                .removeValue();
+
+                    }
+                    reference.removeEventListener(this);
+                    i+=1;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
     private void initalizeUI() {
 
-        addannouncementlayout.setOnClickListener(new View.OnClickListener() {
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putString("id",classid);
-
-                Fragment fragment = new AddAnnouncementFragment();
-                fragment.setArguments(bundle);
-                FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.fragment_container,fragment)
-                        .commit();
-            }
-        });
-        discussionlayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        settinglayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        studentlayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+                startActivity(new Intent(getActivity(), AddAnnouncementActivity.class));
             }
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
