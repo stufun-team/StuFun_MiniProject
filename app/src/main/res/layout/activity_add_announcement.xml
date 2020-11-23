@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".AddAnnouncementActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back"
+        app:title="@string/add_announcement"
+        android:id="@+id/add_announce_toolbar"
+        app:titleTextColor="@color/colorWhite"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/add_announce_toolbar"
+        android:text="@string/add_announcement"
+        android:id="@+id/add_announce_head"
+        android:layout_marginStart="25dp"
+        android:textColor="@color/colorWhite"
+        />
+
+    <EditText
+        android:gravity="top"
+        android:padding="10dp"
+        android:layout_below="@id/add_announce_head"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/edit_bg"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/add_announcement_edit"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:textColor="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="70dp"
+        android:id="@+id/add_announcement_btn"
+        android:layout_centerHorizontal="true"
+        android:text="@string/add_announcement"
+        />
+
+</RelativeLayout>
