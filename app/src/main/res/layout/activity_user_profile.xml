@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserProfileActivity">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/colorPrimary"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_back"
+                android:layout_margin="10dp"
+                android:id="@+id/back_btn_profile"
+                tools:ignore="ContentDescription" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:id="@+id/profile_image"
+                android:layout_marginTop="105dp"
+                android:layout_centerHorizontal="true"
+                />
+        </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/name"
+        android:drawablePadding="5dp"
+        android:drawableStart="@drawable/ic_outline_person_24"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
+        android:layout_marginTop="220dp"
+        android:id="@+id/profile_name_txt"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:drawableStart="@drawable/ic_outline_email_24"
+        android:text="@string/email"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
+        android:layout_below="@id/profile_name_txt"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="5dp"
+        android:id="@+id/profile_email_txt"
+        tools:ignore="UseCompatTextViewDrawableXml" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:text="@string/organization_name"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
+        android:layout_below="@+id/profile_email_txt"
+        android:layout_marginTop="10dp"
+        android:id="@+id/profile_organization_txt"
+        android:drawableStart="@drawable/ic_outline_school_24"
+        android:drawablePadding="5dp"
+        tools:ignore="UseCompatTextViewDrawableXml" />
+</RelativeLayout>
