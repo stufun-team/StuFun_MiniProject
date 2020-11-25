@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Student.StudentClass">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/classname"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorPrimary"
+        android:textSize="20sp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:id="@+id/class_head"
+        android:layout_alignParentTop="true"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/class_head"
+        android:layout_above="@+id/student_class_tablayout"
+        android:id="@+id/student_class_viewpager"
+        />
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorAnimationDuration="300"
+        app:tabBackground="@drawable/tab_selector"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/student_class_tablayout"
+        />
+
+
+</RelativeLayout>

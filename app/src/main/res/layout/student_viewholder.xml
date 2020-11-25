@@ -1,23 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/student_detail_img"
+        app:civ_border_color="@color/colorWhite"
+        app:civ_border_width="1dp"
+        />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/name"
+        android:layout_toEndOf="@+id/student_detail_img"
         android:textColor="@color/colorPrimary"
         android:capitalize="words"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"
         android:id="@+id/student_name_txt"
         />
     <View
+        android:layout_below="@+id/student_detail_img"
+
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorPrimary"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="4dp"
         />
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="20dp"
+        android:id="@+id/student_detail_chat_img"
+        android:src="@drawable/ic_outline_announcement_24"/>
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/student_detail_chat_img"
+        android:layout_marginEnd="10dp"
+        android:id="@+id/student_detail_blockuser"
+        android:src="@drawable/ic_baseline_block_24"/>
+
+
+</RelativeLayout>
