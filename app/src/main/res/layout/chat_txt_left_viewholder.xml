@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingEnd="100dp"
+    android:layout_height="wrap_content">
+
+<RelativeLayout
+    android:visibility="gone"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/chat_txt_layout"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/chat_txt"
+        android:padding="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/edit_bg"
+        android:layout_height="wrap_content"
+        android:text="@string/chat_left_message"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chat_time"
+        android:text="time"
+        android:layout_marginStart="5dp"
+        android:textSize="12sp"
+        android:layout_toEndOf="@+id/chat_txt"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/chat_txt"
+        android:layout_marginTop="-15dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/seen_txt"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chat_txt"
+        android:visibility="gone"/>
+</RelativeLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:id="@+id/chat_image_layout">
+
+        <ImageView
+            android:layout_margin="5dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@color/grey"
+            android:id="@+id/chat_image"
+            android:scaleType="fitXY"
+            tools:ignore="ContentDescription" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:padding="3dp"
+            android:src="@drawable/ic_baseline_arrow_circle_down_24"
+            android:background="@drawable/oval_white"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/doenload_img"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/chat_image"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/chat_image_time"
+            />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
