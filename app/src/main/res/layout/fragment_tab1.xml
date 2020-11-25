@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Teacher.TeacherClass">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/classname"
+        android:background="@color/colorPrimary"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:padding="5dp"
+        android:id="@+id/class_teacher_head"
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_above="@id/tablayout"
+        android:layout_below="@+id/class_teacher_head"
+        android:layout_height="match_parent"
+        android:id="@+id/view_pager"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:id="@+id/tablayout"
+        android:layout_alignParentBottom="true"
+        app:tabBackground="@drawable/tab_selector"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
