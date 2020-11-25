@@ -34,7 +34,6 @@ import java.util.List;
 public class ChatFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private FloatingActionButton floatsearch;
     private String myid;
 
     private ChatUserAdapter chatUserAdapter;
@@ -44,6 +43,7 @@ public class ChatFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
 
         recyclerView = view.findViewById(R.id.chat_recyclerview);
@@ -52,7 +52,7 @@ public class ChatFragment extends Fragment {
 
         myid = Prevalent.currentuser.getUid();
 
-        floatsearch = view.findViewById(R.id.search_floatingbar);
+        FloatingActionButton floatsearch = view.findViewById(R.id.search_floatingbar);
         floatsearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,6 +81,7 @@ public class ChatFragment extends Fragment {
                 {
                     UserChatModel userChatModel = dataSnapshot.getValue(UserChatModel.class);
 
+                    assert userChatModel != null;
                     if(userChatModel.getSender().equals(myid))
                     {
                         String fid = userChatModel.getReceiver();
